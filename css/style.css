@@ -2,6 +2,16 @@
 * {
   box-sizing: border-box;
 }
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 8px;
+}
 
 html {
   scroll-behavior: smooth;
@@ -14,7 +24,9 @@ body {
 .center {
   text-align: center;
 }
-
+.right {
+  text-align: right;
+}
 .muted {
   color: darkgray;
 }
@@ -65,11 +77,36 @@ nav {
 
 nav img.logo {
   width: 129px;
+  animation: spin infinite 3s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 nav ul.navList {
   margin: 0;
   padding: 0;
+}
+@media (max-width: 387px) {
+  nav {
+    display: block;
+    text-align: center;
+  }
+  nav ul.navList {
+    margin-bottom: 32px;
+  }
+
+  /* we can delete the above and enable this */
+
+  /* nav img.logo {
+    width: 64px;
+  } */
 }
 
 nav ul.navList li {
@@ -132,6 +169,87 @@ nav ul.navList li {
     width: 100%;
     margin-bottom: 32px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
+#sayHello {
+  background-image: url(../images/main.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#sayHello .overlay {
+  padding: 64px 8px;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  background-image: url(../images/dot.png);
+}
+
+#sayHello .title {
+  color: white;
+  text-shadow: 0 0 7px grey;
+}
+
+#sayHello form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#sayHello form input {
+  width: auto;
+}
+
+#contact {
+  padding: 64px 8px;
+}
+#contactForm {
+  width: 35%;
+  /* top right bottom left */
+  margin: 64px auto 0;
+  background-color: #fbfbfb;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-radius: 10px;
+}
+
+#contactForm input {
+  width: 0;
+}
+#contactForm input:focus {
+  animation: widthBig 0.5s linear;
+  width: 100%;
+}
+@keyframes widthBig {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+#contact .form-group {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 968px) {
+  #contactForm {
+    width: 50%;
+  }
+}
+
+@media (max-width: 601px) {
+  #contactForm {
+    width: 75%;
+  }
+}
+
+@media (max-width: 394px) {
+  #contactForm {
+    width: 100%;
   }
 }
 
